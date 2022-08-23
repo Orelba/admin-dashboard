@@ -114,7 +114,7 @@ img {
 
 .main-content {
   display: grid;
-  grid-template: max-content 60px 1.5fr repeat(2, 1fr) / repeat(2, minmax(300px, 1fr));
+  grid-template: max-content 67px 1.5fr repeat(2, 1fr) / repeat(2, minmax(300px, 1fr));
   grid-template-areas:
     "search search"
     "header header"
@@ -202,11 +202,13 @@ input[type="search"] {
 .revenue-sidebar {
   border-radius: 30px;
 }
+
 .general-card {
   grid-area: general;
   background-color: #F9F8F3;
   display: flex;
   justify-content: space-around;
+  padding: 20px 5px;
 }
 
 .general-card .metric {
@@ -248,8 +250,8 @@ p.small-metric-text {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  padding: 0 75px 0 25px;
-  gap: 10px;
+  padding: 20px 75px 20px 40px;
+  gap: 30px;
 }
 
 .card-info p:nth-child(1) {
@@ -294,6 +296,18 @@ p.small-metric-text {
   right: 20px;
 }
 
+.filter-orange {
+  filter: invert(74%) sepia(71%) saturate(3093%) hue-rotate(332deg) brightness(94%) contrast(77%);
+}
+
+.filter-green {
+  filter: invert(79%) sepia(13%) saturate(1210%) hue-rotate(74deg) brightness(92%) contrast(86%);
+}
+
+.filter-blue {
+  filter: invert(71%) sepia(61%) saturate(293%) hue-rotate(152deg) brightness(93%) contrast(83%)
+}
+
 .daily-sales {
   background-color: #FFEEE2;
 }
@@ -311,11 +325,42 @@ p.small-metric-text {
 }
 
 .revenue-sidebar {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template: repeat(2, 1fr) / 300px;
+  color: white;
   background: black;
   background: linear-gradient(180deg, rgba(0,0,0,1) 43%, rgba(23,23,23,1) 67%, rgba(57,57,57,1) 100%);
   margin: 22px 40px 32px 0;
-  color: white;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template: repeat(2, 1fr) / 50px 200px 50px;
 }
+
+.revenue,
+.statistics {
+  grid-column: 2 / 3;
+}
+
+.revenue h2,
+.statistics h2 {
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+.revenue {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.revenue-metric {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.statistics img {
+  margin-top: 50px;
+  border-radius: 6px;
+  width: 200px;
+}
+
+
