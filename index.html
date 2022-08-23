@@ -13,10 +13,11 @@
 </head>
 
 <body>
-  <div class="sidebar">
+  <div class="sidebar no-select">
     <div class="sidebar-header">
       <img src="images/list.svg" alt="Header Lines" height="35" width="35">
     </div>
+
     <nav>
       <div class="nav-item active">
         <img src="images/house.svg" alt="Home">
@@ -43,6 +44,7 @@
         <p>Settings</p>
       </div>
     </nav>
+
     <div class="user-profile">
       <div class="profile-pic-wrapper">
         <img class="profile-pic" src="images/profile-pic.jpg" alt="Face" height="47" width="47">
@@ -53,8 +55,112 @@
   </div>
 
   <main class="main-content">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nostrum quibusdam corporis libero in dolorum? Eligendi, at illum! Consequuntur dolore culpa aperiam ea id, soluta repellendus dicta eligendi deleniti eos?</p>
+
+    <div class="search-bar">
+      <input type="search" placeholder="Search for stats" id="search" name="search">
+      <img src="images/search.svg" alt="Search" height="20" width="20">
+    </div>
+
+    <div class="main-header">
+      <div class="greet">
+        <h1>Hello David</h1>
+        <h2>Welcome Back !</h2>
+      </div>
+
+      <button class="filter-btn">
+        Filters
+        <img src="images/sliders.svg" alt="Filter Slider" height="20" width="20">
+      </button>
+      </div>
+    </div>
+
+    <div class="general-card">
+      <div class="metric">
+        <div class="metric-info">
+          <div class="icon-wrapper">
+            <img src="images/eye.svg" alt="Views Icon" height="20" width="20">
+          </div>
+          <p class="small-metric-text">Views</p>
+          <p class="count">500</p>
+          <p class="small-metric-text">Per Day</p>
+        </div>
+      </div>
+      <div class="metric">
+        <div class="metric-info">
+          <div class="icon-wrapper">
+            <img src="images/compass.svg" alt="Visits Icon" height="20" width="20">
+          </div>
+          <p class="small-metric-text">Visits</p>
+          <p class="count">2000</p>
+          <p class="small-metric-text">Per minute</p>
+        </div>
+      </div>
+      <div class="metric">
+        <div class="metric-info">
+          <div class="icon-wrapper">
+            <img src="images/shop.svg" alt="Orders Icon" height="20" width="20">
+          </div>
+          <p class="small-metric-text">Orders</p>
+          <p class="count">5100</p>
+          <p class="small-metric-text">Per Day</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card daily-sales">
+      <div class="card-info">
+        <p>Sales</p>
+        <p>Total Sales Today</p>
+        <p>$500</p>
+      </div>
+      <div class="graph">
+        <img src="images/graph-downward-2.svg" alt="Graph">
+        <span>55%</span>
+      </div>
+      <img src="images/diagonal-arrow-right-down-outline.svg" alt="Arrow" height="25" width="25">
+    </div>
+    <div class="card daily-orders">
+      <div class="card-info">
+        <p>Orders</p>
+        <p>Total Orders Today</p>
+        <p>1000</p>
+      </div>
+      <div class="graph">
+        <img src="images/graph-upward-2.svg" alt="Graph">
+        <span>80%</span>
+      </div>
+      <img src="images/diagonal-arrow-right-up-outline.svg" alt="Arrow" height="25" width="25">
+    </div>
+    <div class="card daily-profit">
+      <div class="card-info">
+        <p>Profit</p>
+        <p>Per Day Ratio</p>
+        <p>$150</p>
+      </div>
+      <div class="graph">
+        <img src="images/graph-downward-1.svg" alt="Graph">
+        <span>30%</span>
+      </div>
+      <img src="images/diagonal-arrow-right-down-outline.svg" alt="Arrow" height="25" width="25">
+    </div>
+    <div class="card daily-visits">
+      <div class="card-info">
+        <p>Visits</p>
+        <p>Total Visits Today</p>
+        <p>400</p>
+      </div>
+      <div class="graph">
+        <img src="images/graph-upward-1.svg" alt="Graph">
+        <span class>70%</span>
+      </div>
+      <img src="images/diagonal-arrow-right-up-outline.svg" alt="Arrow" height="25" width="25">
+    </div>
+    
   </main>
+
+  <div class="revenue-sidebar">
+    Revenue
+  </div>
 </body>
 
 </html>
