@@ -471,7 +471,7 @@ p.small-metric-text {
 
   .card {
     justify-content: space-between;
-    padding-right: 100px;
+    padding-right: 72px;
   }
 
   .card-info p:nth-child(1) {
