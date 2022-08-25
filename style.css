@@ -41,7 +41,7 @@ img {
 .sidebar {
   display: grid;
   grid-template-rows: 100px 2fr 1fr;
-  padding: 0 0 40px 2px;
+  padding: 0 0 32px 2px;
   border-right: 1px solid #d3d3d3a1;
   gap: 20px;
 }
@@ -112,6 +112,35 @@ img {
 .user-name {
   font-size: 1rem;
   font-weight: 700;
+}
+
+.github-link {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.github-link:hover {
+  transform:scale(1.05);
+  filter: drop-shadow(0 0 0.5rem #24292f);
+}
+
+.github-link p {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #24292f;
+}
+
+#github-icon {
+  filter: drop-shadow(0 0 0.3rem #24292f);
+}
+
+
+:link, :visited {
+  color: inherit;
+  text-decoration: none;
 }
 
 main {
@@ -418,13 +447,13 @@ p.small-metric-text {
     left: -100%;
     height: 100%;
     width: 100%;
+    padding: 0 0 15px 2px;
     background-color: white;
     z-index: 10;
-    transition: 1s;
+    transition: left 0.4s;
   }
 
   .slidein {
-    transition: 1s;
     left: 0;
   }
 
@@ -461,8 +490,22 @@ p.small-metric-text {
     width: 100%;
   }
 
+  .greet {
+    margin-left: 13px;
+  }
+
   .greet h1 {
     font-size: 1.8rem;
+  }
+
+  .greet h2 {
+    margin-left: 3px;
+  }
+
+  .metric-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   p.count {
