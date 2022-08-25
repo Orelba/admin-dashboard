@@ -1,6 +1,7 @@
 :root {
   --left-padding: 42px;
   --light-grey: #dfdfdf;
+  --responsive-small-text: calc(0.65rem + 0.2vw);
 }
 
 * {
@@ -54,7 +55,7 @@ img {
 
   font-weight: 600;
   padding-left: var(--left-padding);
-  margin-left: calc(var(--border-left));
+  margin-left: var(--border-left);
   height: 60px;
   display: flex;
   align-items: center;
@@ -85,8 +86,8 @@ img {
 .profile-pic-wrapper {
   border: 1.5px solid #C8C8C8;
   border-radius: 16px;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   display: flex; 
   justify-content: center;
   align-items: center;
@@ -100,26 +101,28 @@ img {
 .online-dot {
   background-color: #68B071;
   border-radius: 50px;
-  height: 13px;
-  width: 13px;
+  height: 17px;
+  width: 17px;
   border: 2px solid white;
   position: absolute;
   bottom: -1px;
-  right: -6px;
+  right: -8px;
 }
 
 .user-name {
+  font-size: 1rem;
   font-weight: 700;
 }
 
-.main-content {
+main {
   display: grid;
-  grid-template: max-content 67px 1.5fr repeat(2, 1fr) / repeat(2, minmax(300px, 1fr));
+  grid-template: max-content 67px 1.5fr repeat(2, 1fr) / repeat(2, minmax(300px, 1fr)) 350px;
   grid-template-areas:
-    "search search"
-    "header header"
-    "general general";
-  /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
+    "search search revenue"
+    "header header revenue"
+    "general general revenue"
+    ". . revenue"
+    ". . revenue";
   grid-auto-flow: column;
   gap: 40px;
   padding: 32px 0;
@@ -130,10 +133,19 @@ img {
   position: relative;
 }
 
-.search-bar img {
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-bar #search-icon {
   position: absolute;
   left: 18px;
   top: 16px;
+}
+
+#hamburger-icon {
+  display: none;
 }
 
 input[type="search"]::-webkit-search-decoration,
@@ -142,6 +154,7 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance:none;
 }
+
 input[type="search"] {
   appearance: none;
   font-size: 0.9rem;
@@ -223,9 +236,11 @@ input[type="search"] {
 }
 
 .icon-wrapper {
+  --responsive-dimensions: calc(45px + 1vw);
+
   background-color: #E4E0D5;
-  height: calc(45px + 1vw);
-  width: calc(45px + 1vw);
+  height: var(--responsive-dimensions);
+  width: var(--responsive-dimensions);
   border-radius: 100px;
   display: flex;
   justify-content: center;
@@ -234,41 +249,38 @@ input[type="search"] {
 
 p.count {
   font-size: calc(2rem + 1vw);
-  /* font-size: 3rem; */
   font-weight: 600;
   margin: 3px 0;
 }
 
 p.small-metric-text {
-  font-size: calc(0.7rem + 0.2vw);
-  /* font-size: clamp(0.8rem, 80vw, 1rem); */
+  font-size: var(--responsive-small-text);
   color: #838383;
 }
 
 .card {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   position: relative;
   padding: 20px 75px 20px 40px;
-  gap: 30px;
+  gap: 32px;
 }
 
 .card-info p:nth-child(1) {
-  font-size: 1.1rem;
+  font-size: calc(0.45rem + 0.9vw);
   font-weight: 700;
 }
 
 .card-info p:nth-child(2) {
   margin-top: 6px;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: var(--responsive-small-text);
   color: #838383;
 }
 
 .card-info p:nth-child(3) {
   margin-top: 10px;
-  font-size: 1.6rem;
+  font-size: calc(0.8rem + 1vw);
   font-weight: 700;
 }
 
@@ -280,14 +292,20 @@ p.small-metric-text {
 }
 
 .graph img {
+  --graph-dimensions: calc(80px + 2.3vw);
+
   position: absolute;
   opacity: 0.8;
-  border-radius: 6px;
+  border: 1px solid #000000;
+  border-radius: 106px;
+  height: var(--graph-dimensions);
+  width: var(--graph-dimensions);
 }
 
-.graph span {
-  font-size: 1.8rem;
+.graph .percentage {
+  font-size: calc(0.7rem + 0.9vw);
   font-weight: 700;
+  z-index: 1;
 }
 
 .card img[Alt="Arrow"] {
@@ -325,13 +343,14 @@ p.small-metric-text {
 }
 
 .revenue-sidebar {
+  grid-area: revenue;
   color: white;
   background: black;
-  background: linear-gradient(180deg, rgba(0,0,0,1) 43%, rgba(23,23,23,1) 67%, rgba(57,57,57,1) 100%);
-  margin: 22px 40px 32px 0;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 43%, rgba(23,23,23,1) 77%, rgba(40,40,40,1) 100%);
+  margin-right: 40px;
   display: grid;
   grid-auto-flow: column;
-  grid-template: repeat(2, 1fr) / 50px 200px 50px;
+  grid-template: repeat(2, 1fr) / 50px 1fr 50px;
 }
 
 .revenue,
@@ -341,8 +360,10 @@ p.small-metric-text {
 
 .revenue h2,
 .statistics h2 {
+  font-size: calc(0.45rem + 0.7vw);
   font-weight: 400;
   margin-top: 20px;
+  color: #fbfbfb;
 }
 
 .revenue {
@@ -357,10 +378,130 @@ p.small-metric-text {
   gap: 30px;
 }
 
+.revenue-metric .icon-wrapper {
+  background-color: #e2e2e2;
+}
+
+.revenue-metric .info p:first-child {
+  font-size: calc(0.8rem + 0.55vw);
+  /* font-size: 1.3rem; */
+  font-weight: 600;
+}
+
+.revenue-metric .info p:last-child {
+  font-size: var(--responsive-small-text);
+  color: #a7a7a7;
+}
+
 .statistics img {
   margin-top: 50px;
   border-radius: 6px;
   width: 200px;
 }
 
+@media (orientation: portrait) {
+  :root {
+    --responsive-small-text: calc(0.80rem + 0.2vw);
+  }
 
+  body {
+    display: block;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+    left: -772px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
+    transition: 1s;
+  }
+
+  .slidein {
+    transition: 1s;
+    left: 0;
+  }
+
+  main {
+    grid-template: max-content 67px 1.5fr repeat(auto-fit, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "search"
+      "header"
+      "general"
+      "..."
+      "..."
+      "..."
+      "..."
+      "revenue"
+      "revenue";
+    
+    gap: 15px;
+    margin: 0 10px;
+    padding: 10px 0;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #hamburger-icon {
+    display: block;
+  }
+
+  input[type="search"] {
+    width: 100%;
+  }
+
+  .greet h1 {
+    font-size: 1.8rem;
+  }
+
+  p.count {
+    font-size: calc(1.6rem + 1vw);
+  }
+
+  .card {
+    justify-content: space-between;
+    padding-right: 100px;
+  }
+
+  .card-info p:nth-child(1) {
+    font-size: calc(0.8rem + 0.9vw);
+  }
+
+  .card-info p:nth-child(3) {
+    font-size: calc(1rem + 1vw);
+  }
+
+  .graph .percentage {
+    font-size: calc(1rem + 0.9vw);
+  }
+
+  .revenue-sidebar {
+    margin-right: 0;
+    place-items: center;
+    grid-template: repeat(2, 1fr) / 0.5fr 1fr 0.5fr;
+  }
+
+  .revenue h2, .statistics h2 {
+    font-size: calc(1rem + 0.7vw);
+  }
+
+  .revenue-metric .info p:first-child {
+    font-size: calc(1.2rem + 0.55vw);
+  }
+
+  .revenue {
+    gap: 10px;
+    width: 200px;
+  }
+}
