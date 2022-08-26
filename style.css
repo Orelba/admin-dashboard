@@ -428,7 +428,7 @@ p.small-metric-text {
   width: 200px;
 }
 
-@media only screen and (max-width: 768px) and (orientation: portrait) {
+@media only screen and (max-width: 768px) {
   :root {
     --responsive-small-text: calc(0.80rem + 0.2vw);
   }
@@ -442,7 +442,8 @@ p.small-metric-text {
   }
 
   .sidebar {
-    position: absolute;
+    position: fixed;
+    overflow: scroll;
     top: 0;
     left: -100%;
     height: 100%;
